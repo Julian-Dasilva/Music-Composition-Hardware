@@ -1,0 +1,6 @@
+AR main behavioral "C:/Users/stJu616Da6503/Desktop/maqams 3-12-15/main.vhd" sub00/vhpl05 1426712260
+EN mem NULL "C:/Users/stJu616Da6503/Desktop/maqams 3-12-15/ipcore_dir/mem.vhd" sub00/vhpl00 1426712255
+EN main NULL "C:/Users/stJu616Da6503/Desktop/maqams 3-12-15/main.vhd" sub00/vhpl04 1426712259
+AR dac behavioral "C:/Users/stJu616Da6503/Desktop/maqams 3-12-15/DAC.vhd" sub00/vhpl03 1426712258
+AR mem mem_a "C:/Users/stJu616Da6503/Desktop/maqams 3-12-15/ipcore_dir/mem.vhd" sub00/vhpl01 1426712256
+EN dac NULL "C:/Users/stJu616Da6503/Desktop/maqams 3-12-15/DAC.vhd" sub00/vhpl02 1426712257

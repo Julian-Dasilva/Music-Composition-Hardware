@@ -1,0 +1,26 @@
+V3 18
+FL "C:/Dim/CCLI Multimedia FPGA/AudioProject/maqams/DAC.vhd" 2015/03/11.02:40:58 O.87xd
+FL "C:/Dim/CCLI Multimedia FPGA/AudioProject/maqams/ipcore_dir/mem.vhd" 2015/03/11.02:34:56 O.87xd
+FL "C:/Dim/CCLI Multimedia FPGA/AudioProject/maqams/main.vhd" 2015/03/11.02:53:46 O.87xd
+FL "G:/data/xilinx projects/maqams 3-12-15/DAC.vhd" 2015/03/19.15:27:28 O.87xd
+EN work/DAC 1426815390 FL "G:/data/xilinx projects/maqams 3-12-15/DAC.vhd" \
+      PB ieee/std_logic_1164 1325952872 PB ieee/STD_LOGIC_UNSIGNED 1325952875
+AR work/DAC/Behavioral 1426815391 \
+      FL "G:/data/xilinx projects/maqams 3-12-15/DAC.vhd" EN work/DAC 1426815390
+FL "G:/data/xilinx projects/maqams 3-12-15/ipcore_dir/mem.vhd" 2015/03/11.02:34:58 O.87xd
+EN work/mem 1426815388 \
+      FL "G:/data/xilinx projects/maqams 3-12-15/ipcore_dir/mem.vhd" \
+      PB ieee/std_logic_1164 1325952872
+AR work/mem/mem_a 1426815389 \
+      FL "G:/data/xilinx projects/maqams 3-12-15/ipcore_dir/mem.vhd" EN work/mem 1426815388
+FL "G:/data/xilinx projects/maqams 3-12-15/lfsr.vhd" 2015/03/19.19:56:19 O.87xd
+EN work/lfsr 1426815386 FL "G:/data/xilinx projects/maqams 3-12-15/lfsr.vhd" \
+      PB ieee/std_logic_1164 1325952872
+AR work/lfsr/Behavioral 1426815387 \
+      FL "G:/data/xilinx projects/maqams 3-12-15/lfsr.vhd" EN work/lfsr 1426815386
+FL "G:/data/xilinx projects/maqams 3-12-15/main.vhd" 2015/03/19.21:36:22 O.87xd
+EN work/main 1426815392 FL "G:/data/xilinx projects/maqams 3-12-15/main.vhd" \
+      PB ieee/std_logic_1164 1325952872 PB ieee/STD_LOGIC_SIGNED 1325952874
+AR work/main/Behavioral 1426815393 \
+      FL "G:/data/xilinx projects/maqams 3-12-15/main.vhd" EN work/main 1426815392 \
+      CP lfsr CP mem CP DAC

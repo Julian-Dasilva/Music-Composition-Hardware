@@ -1,0 +1,4 @@
+vhdl work "ipcore_dir/mem.vhd"
+vhdl work "lfsr.vhd"
+vhdl work "DAC.vhd"
+vhdl work "main.vhd"

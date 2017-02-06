@@ -1,0 +1,652 @@
+Release 13.4 - xst O.87xd (nt64)
+Copyright (c) 1995-2011 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.13 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.13 secs
+ 
+--> Reading design: main.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+	9.1) Device utilization summary
+	9.2) Partition Resource Summary
+	9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "main.prj"
+Input Format                       : mixed
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "main"
+Output Format                      : NGC
+Target Device                      : xc3s500e-5-fg320
+
+---- Source Options
+Top Module Name                    : main
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : Yes
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+ROM Style                          : Auto
+Mux Extraction                     : Yes
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Multiplier Style                   : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 24
+Register Duplication               : YES
+Slice Packing                      : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Yes
+Use Synchronous Set                : Yes
+Use Synchronous Reset              : Yes
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+Verilog 2001                       : YES
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+---- Other Options
+Cores Search Directories           : {"ipcore_dir"  }
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling vhdl file "G:/data/xilinx projects/maqams 3-12-15/lfsr.vhd" in Library work.
+Architecture behavioral of Entity lfsr is up to date.
+Compiling vhdl file "G:/data/xilinx projects/maqams 3-12-15/ipcore_dir/mem.vhd" in Library work.
+Architecture mem_a of Entity mem is up to date.
+Compiling vhdl file "G:/data/xilinx projects/maqams 3-12-15/DAC.vhd" in Library work.
+Architecture behavioral of Entity dac is up to date.
+Compiling vhdl file "G:/data/xilinx projects/maqams 3-12-15/main.vhd" in Library work.
+Entity <main> compiled.
+Entity <main> (Architecture <behavioral>) compiled.
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for entity <main> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <lfsr> in library <work> (architecture <behavioral>) with generics.
+	N = 15
+
+Analyzing hierarchy for entity <DAC> in library <work> (architecture <behavioral>).
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing Entity <main> in library <work> (Architecture <behavioral>).
+WARNING:Xst:2211 - "G:/data/xilinx projects/maqams 3-12-15/main.vhd" line 144: Instantiating black box module <mem>.
+Entity <main> analyzed. Unit <main> generated.
+
+Analyzing generic Entity <lfsr> in library <work> (Architecture <behavioral>).
+	N = 15
+Entity <lfsr> analyzed. Unit <lfsr> generated.
+
+Analyzing Entity <DAC> in library <work> (Architecture <behavioral>).
+Entity <DAC> analyzed. Unit <DAC> generated.
+
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+
+Synthesizing Unit <lfsr>.
+    Related source file is "G:/data/xilinx projects/maqams 3-12-15/lfsr.vhd".
+    Found 16-bit register for signal <lfsr_temp>.
+Unit <lfsr> synthesized.
+
+
+Synthesizing Unit <DAC>.
+    Related source file is "G:/data/xilinx projects/maqams 3-12-15/DAC.vhd".
+WARNING:Xst:647 - Input <SPI_MISO> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Found finite state machine <FSM_0> for signal <state>.
+    -----------------------------------------------------------------------
+    | States             | 3                                              |
+    | Transitions        | 10                                             |
+    | Inputs             | 7                                              |
+    | Outputs            | 5                                              |
+    | Clock              | clk                       (rising_edge)        |
+    | Reset              | reset                     (positive)           |
+    | Reset type         | asynchronous                                   |
+    | Reset State        | idle                                           |
+    | Power Up State     | idle                                           |
+    | Encoding           | automatic                                      |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found 1-bit register for signal <DAC_CS>.
+    Found 1-bit register for signal <SPI_MOSI>.
+    Found 10-bit register for signal <addr1>.
+    Found 10-bit adder for signal <addr1$addsub0000> created at line 101.
+    Found 11-bit comparator less for signal <addr1$cmp_lt0000> created at line 100.
+    Found 17-bit up counter for signal <clkdiv>.
+    Found 32-bit register for signal <cnt>.
+    Found 32-bit adder for signal <cnt$share0000> created at line 86.
+    Found 12-bit register for signal <data>.
+    Found 32-bit register for signal <delay1>.
+    Found 1-bit register for signal <newclk>.
+    Found 1-bit register for signal <risingedge>.
+    Found 32-bit comparator greatequal for signal <SPI_MOSI$cmp_ge0000> created at line 123.
+    Found 32-bit comparator less for signal <state$cmp_lt0000> created at line 89.
+    Found 32-bit comparator less for signal <state$cmp_lt0001> created at line 108.
+    Found 32-bit comparator less for signal <state$cmp_lt0002> created at line 111.
+    Found 32-bit comparator less for signal <state$cmp_lt0003> created at line 115.
+    Found 32-bit comparator less for signal <state$cmp_lt0004> created at line 119.
+    Found 32-bit comparator less for signal <state$cmp_lt0005> created at line 123.
+    Summary:
+	inferred   1 Finite State Machine(s).
+	inferred   1 Counter(s).
+	inferred  90 D-type flip-flop(s).
+	inferred   2 Adder/Subtractor(s).
+	inferred   8 Comparator(s).
+Unit <DAC> synthesized.
+
+
+Synthesizing Unit <main>.
+    Related source file is "G:/data/xilinx projects/maqams 3-12-15/main.vhd".
+WARNING:Xst:647 - Input <SW> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:1780 - Signal <mclk> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:1780 - Signal <dac_data> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:1780 - Signal <counter> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+    Found 8x32-bit ROM for signal <delay>.
+    Found 1-bit register for signal <clk_25>.
+    Found 32-bit up counter for signal <count>.
+    Found 32-bit register for signal <index>.
+    Found 32-bit adder for signal <index$addsub0000> created at line 117.
+    Found 32-bit comparator greater for signal <index$cmp_gt0000> created at line 117.
+    Found 32-bit comparator less for signal <index$cmp_lt0000> created at line 111.
+    Found 32-bit 4-to-1 multiplexer for signal <index$mux0003>.
+    Found 32-bit subtractor for signal <index$sub0000> created at line 111.
+    Found 1-bit register for signal <slow_clock>.
+    Summary:
+	inferred   1 ROM(s).
+	inferred   1 Counter(s).
+	inferred  34 D-type flip-flop(s).
+	inferred   2 Adder/Subtractor(s).
+	inferred   2 Comparator(s).
+	inferred  32 Multiplexer(s).
+Unit <main> synthesized.
+
+INFO:Xst:1767 - HDL ADVISOR - Resource sharing has identified that some arithmetic operations in this design can share the same physical resources for reduced device utilization. For improved clock frequency you may try to disable resource sharing.
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# ROMs                                                 : 1
+ 8x32-bit ROM                                          : 1
+# Adders/Subtractors                                   : 4
+ 10-bit adder                                          : 1
+ 32-bit adder                                          : 2
+ 32-bit subtractor                                     : 1
+# Counters                                             : 2
+ 17-bit up counter                                     : 1
+ 32-bit up counter                                     : 1
+# Registers                                            : 11
+ 1-bit register                                        : 5
+ 10-bit register                                       : 1
+ 12-bit register                                       : 1
+ 16-bit register                                       : 1
+ 32-bit register                                       : 3
+# Comparators                                          : 10
+ 11-bit comparator less                                : 1
+ 32-bit comparator greatequal                          : 1
+ 32-bit comparator greater                             : 1
+ 32-bit comparator less                                : 7
+# Multiplexers                                         : 1
+ 32-bit 4-to-1 multiplexer                             : 1
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+Analyzing FSM <FSM_0> for best encoding.
+Optimizing FSM <DAC_1/state/FSM> on signal <state[1:2]> with user encoding.
+-------------------
+ State | Encoding
+-------------------
+ idle  | 00
+ func  | 01
+ write | 10
+-------------------
+Reading core <ipcore_dir/mem.ngc>.
+Loading core <mem> for timing and area information for instance <cosine>.
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# FSMs                                                 : 1
+# ROMs                                                 : 1
+ 8x32-bit ROM                                          : 1
+# Adders/Subtractors                                   : 4
+ 10-bit adder                                          : 1
+ 32-bit adder                                          : 2
+ 32-bit subtractor                                     : 1
+# Counters                                             : 2
+ 17-bit up counter                                     : 1
+ 32-bit up counter                                     : 1
+# Registers                                            : 139
+ Flip-Flops                                            : 139
+# Comparators                                          : 10
+ 11-bit comparator less                                : 1
+ 32-bit comparator greatequal                          : 1
+ 32-bit comparator greater                             : 1
+ 32-bit comparator less                                : 7
+# Multiplexers                                         : 1
+ 32-bit 4-to-1 multiplexer                             : 1
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+WARNING:Xst:1293 - FF/Latch <addr1_0> has a constant value of 0 in block <DAC>. This FF/Latch will be trimmed during the optimization process.
+
+Optimizing unit <main> ...
+
+Optimizing unit <DAC> ...
+
+Optimizing unit <lfsr> ...
+WARNING:Xst:1293 - FF/Latch <DAC_1/delay1_0> has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <DAC_1/delay1_10> has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <DAC_1/delay1_11> has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <DAC_1/delay1_12> has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <DAC_1/delay1_13> has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <DAC_1/delay1_14> has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <DAC_1/delay1_15> has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <DAC_1/delay1_16> has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <DAC_1/delay1_17> has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <DAC_1/delay1_18> has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <DAC_1/delay1_19> has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <DAC_1/delay1_20> has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <DAC_1/delay1_21> has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <DAC_1/delay1_22> has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <DAC_1/delay1_23> has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <DAC_1/delay1_24> has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <DAC_1/delay1_25> has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <DAC_1/delay1_26> has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <DAC_1/delay1_27> has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <DAC_1/delay1_28> has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <DAC_1/delay1_29> has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <DAC_1/delay1_30> has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <DAC_1/delay1_31> has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
+
+Mapping all equations...
+Building and optimizing final netlist ...
+INFO:Xst:2261 - The FF/Latch <DAC_1/delay1_9> in Unit <main> is equivalent to the following FF/Latch, which will be removed : <DAC_1/delay1_1> 
+Found area constraint ratio of 100 (+ 5) on block main, actual ratio is 4.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 165
+ Flip-Flops                                            : 165
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+RTL Top Level Output File Name     : main.ngr
+Top Level Output File Name         : main
+Output Format                      : NGC
+Optimization Goal                  : Speed
+Keep Hierarchy                     : No
+
+Design Statistics
+# IOs                              : 19
+
+Cell Usage :
+# BELS                             : 813
+#      GND                         : 2
+#      INV                         : 41
+#      LUT1                        : 89
+#      LUT2                        : 109
+#      LUT2_L                      : 2
+#      LUT3                        : 17
+#      LUT4                        : 134
+#      LUT4_D                      : 3
+#      MUXCY                       : 256
+#      MUXF5                       : 4
+#      VCC                         : 2
+#      XORCY                       : 154
+# FlipFlops/Latches                : 165
+#      FDC                         : 10
+#      FDE                         : 82
+#      FDP                         : 8
+#      FDR                         : 33
+#      FDRE                        : 32
+# RAMS                             : 1
+#      RAMB16_S18_S18              : 1
+# Clock Buffers                    : 2
+#      BUFG                        : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 13
+#      IBUF                        : 1
+#      OBUF                        : 12
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 3s500efg320-5 
+
+ Number of Slices:                      219  out of   4656     4%  
+ Number of Slice Flip Flops:            165  out of   9312     1%  
+ Number of 4 input LUTs:                395  out of   9312     4%  
+ Number of IOs:                          19
+ Number of bonded IOBs:                  14  out of    232     6%  
+ Number of BRAMs:                         1  out of     20     5%  
+ Number of GCLKs:                         2  out of     24     8%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------------------------------------------------------------------------------------------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)                                                                                                        | Load  |
+-----------------------------------+------------------------------------------------------------------------------------------------------------------------------+-------+
+clk_251                            | BUFG                                                                                                                         | 84    |
+cosine/N0                          | NONE(cosine/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s3_init.ram/dpram.dp18x18.ram)| 1     |
+clk                                | BUFGP                                                                                                                        | 66    |
+slow_clock                         | NONE(lfsr_1/lfsr_temp_0)                                                                                                     | 16    |
+-----------------------------------+------------------------------------------------------------------------------------------------------------------------------+-------+
+INFO:Xst:2169 - HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
+
+Asynchronous Control Signals Information:
+----------------------------------------
+-----------------------------------+------------------------+-------+
+Control Signal                     | Buffer(FF name)        | Load  |
+-----------------------------------+------------------------+-------+
+reset                              | IBUF                   | 18    |
+-----------------------------------+------------------------+-------+
+
+Timing Summary:
+---------------
+Speed Grade: -5
+
+   Minimum period: 8.296ns (Maximum Frequency: 120.547MHz)
+   Minimum input arrival time before clock: 4.333ns
+   Maximum output required time after clock: 4.764ns
+   Maximum combinational path delay: No path found
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'clk_251'
+  Clock period: 7.859ns (frequency: 127.237MHz)
+  Total number of paths / destination ports: 13731 / 115
+-------------------------------------------------------------------------
+Delay:               7.859ns (Levels of Logic = 14)
+  Source:            DAC_1/cnt_5 (FF)
+  Destination:       DAC_1/cnt_31 (FF)
+  Source Clock:      clk_251 rising
+  Destination Clock: clk_251 rising
+
+  Data Path: DAC_1/cnt_5 to DAC_1/cnt_31
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDE:C->Q              9   0.514   0.849  DAC_1/cnt_5 (DAC_1/cnt_5)
+     LUT1:I0->O            1   0.612   0.000  DAC_1/Mcompar_state_cmp_lt0005_cy<0>_rt (DAC_1/Mcompar_state_cmp_lt0005_cy<0>_rt)
+     MUXCY:S->O            1   0.404   0.000  DAC_1/Mcompar_state_cmp_lt0005_cy<0> (DAC_1/Mcompar_state_cmp_lt0005_cy<0>)
+     MUXCY:CI->O           1   0.051   0.000  DAC_1/Mcompar_state_cmp_lt0005_cy<1> (DAC_1/Mcompar_state_cmp_lt0005_cy<1>)
+     MUXCY:CI->O           1   0.051   0.000  DAC_1/Mcompar_state_cmp_lt0005_cy<2> (DAC_1/Mcompar_state_cmp_lt0005_cy<2>)
+     MUXCY:CI->O           1   0.051   0.000  DAC_1/Mcompar_state_cmp_lt0005_cy<3> (DAC_1/Mcompar_state_cmp_lt0005_cy<3>)
+     MUXCY:CI->O           1   0.051   0.000  DAC_1/Mcompar_state_cmp_lt0005_cy<4> (DAC_1/Mcompar_state_cmp_lt0005_cy<4>)
+     MUXCY:CI->O           1   0.051   0.000  DAC_1/Mcompar_state_cmp_lt0005_cy<5> (DAC_1/Mcompar_state_cmp_lt0005_cy<5>)
+     MUXCY:CI->O           1   0.051   0.000  DAC_1/Mcompar_state_cmp_lt0005_cy<6> (DAC_1/Mcompar_state_cmp_lt0005_cy<6>)
+     MUXCY:CI->O           1   0.051   0.000  DAC_1/Mcompar_state_cmp_lt0005_cy<7> (DAC_1/Mcompar_state_cmp_lt0005_cy<7>)
+     MUXCY:CI->O           4   0.399   0.651  DAC_1/Mcompar_state_cmp_lt0005_cy<8> (DAC_1/Mcompar_state_cmp_lt0005_cy<8>)
+     LUT2_L:I0->LO         1   0.612   0.103  DAC_1/N06_SW0 (N6)
+     LUT4:I3->O            2   0.612   0.383  DAC_1/N06 (DAC_1/N06)
+     LUT4_D:I3->O         15   0.612   0.867  DAC_1/N022 (DAC_1/N0)
+     LUT4:I3->O            1   0.612   0.000  DAC_1/cnt_mux0001<26> (DAC_1/cnt_mux0001<26>)
+     FDE:D                     0.268          DAC_1/cnt_5
+    ----------------------------------------
+    Total                      7.859ns (5.006ns logic, 2.853ns route)
+                                       (63.7% logic, 36.3% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'clk'
+  Clock period: 8.296ns (frequency: 120.547MHz)
+  Total number of paths / destination ports: 42194 / 163
+-------------------------------------------------------------------------
+Delay:               8.296ns (Levels of Logic = 36)
+  Source:            index_0 (FF)
+  Destination:       index_0 (FF)
+  Source Clock:      clk rising
+  Destination Clock: clk rising
+
+  Data Path: index_0 to index_0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDRE:C->Q            10   0.514   0.819  index_0 (index_0)
+     LUT2:I1->O            1   0.612   0.000  Madd_index_addsub0000_lut<0> (Madd_index_addsub0000_lut<0>)
+     MUXCY:S->O            1   0.404   0.000  Madd_index_addsub0000_cy<0> (Madd_index_addsub0000_cy<0>)
+     MUXCY:CI->O           1   0.051   0.000  Madd_index_addsub0000_cy<1> (Madd_index_addsub0000_cy<1>)
+     MUXCY:CI->O           1   0.051   0.000  Madd_index_addsub0000_cy<2> (Madd_index_addsub0000_cy<2>)
+     MUXCY:CI->O           1   0.051   0.000  Madd_index_addsub0000_cy<3> (Madd_index_addsub0000_cy<3>)
+     MUXCY:CI->O           1   0.051   0.000  Madd_index_addsub0000_cy<4> (Madd_index_addsub0000_cy<4>)
+     MUXCY:CI->O           1   0.051   0.000  Madd_index_addsub0000_cy<5> (Madd_index_addsub0000_cy<5>)
+     MUXCY:CI->O           1   0.051   0.000  Madd_index_addsub0000_cy<6> (Madd_index_addsub0000_cy<6>)
+     MUXCY:CI->O           1   0.051   0.000  Madd_index_addsub0000_cy<7> (Madd_index_addsub0000_cy<7>)
+     MUXCY:CI->O           1   0.051   0.000  Madd_index_addsub0000_cy<8> (Madd_index_addsub0000_cy<8>)
+     MUXCY:CI->O           1   0.051   0.000  Madd_index_addsub0000_cy<9> (Madd_index_addsub0000_cy<9>)
+     MUXCY:CI->O           1   0.051   0.000  Madd_index_addsub0000_cy<10> (Madd_index_addsub0000_cy<10>)
+     MUXCY:CI->O           1   0.051   0.000  Madd_index_addsub0000_cy<11> (Madd_index_addsub0000_cy<11>)
+     MUXCY:CI->O           1   0.051   0.000  Madd_index_addsub0000_cy<12> (Madd_index_addsub0000_cy<12>)
+     MUXCY:CI->O           1   0.051   0.000  Madd_index_addsub0000_cy<13> (Madd_index_addsub0000_cy<13>)
+     MUXCY:CI->O           1   0.051   0.000  Madd_index_addsub0000_cy<14> (Madd_index_addsub0000_cy<14>)
+     MUXCY:CI->O           1   0.051   0.000  Madd_index_addsub0000_cy<15> (Madd_index_addsub0000_cy<15>)
+     MUXCY:CI->O           1   0.051   0.000  Madd_index_addsub0000_cy<16> (Madd_index_addsub0000_cy<16>)
+     MUXCY:CI->O           1   0.051   0.000  Madd_index_addsub0000_cy<17> (Madd_index_addsub0000_cy<17>)
+     MUXCY:CI->O           1   0.051   0.000  Madd_index_addsub0000_cy<18> (Madd_index_addsub0000_cy<18>)
+     MUXCY:CI->O           1   0.051   0.000  Madd_index_addsub0000_cy<19> (Madd_index_addsub0000_cy<19>)
+     MUXCY:CI->O           1   0.051   0.000  Madd_index_addsub0000_cy<20> (Madd_index_addsub0000_cy<20>)
+     MUXCY:CI->O           1   0.051   0.000  Madd_index_addsub0000_cy<21> (Madd_index_addsub0000_cy<21>)
+     MUXCY:CI->O           1   0.051   0.000  Madd_index_addsub0000_cy<22> (Madd_index_addsub0000_cy<22>)
+     MUXCY:CI->O           1   0.051   0.000  Madd_index_addsub0000_cy<23> (Madd_index_addsub0000_cy<23>)
+     MUXCY:CI->O           1   0.051   0.000  Madd_index_addsub0000_cy<24> (Madd_index_addsub0000_cy<24>)
+     MUXCY:CI->O           1   0.051   0.000  Madd_index_addsub0000_cy<25> (Madd_index_addsub0000_cy<25>)
+     MUXCY:CI->O           1   0.051   0.000  Madd_index_addsub0000_cy<26> (Madd_index_addsub0000_cy<26>)
+     MUXCY:CI->O           1   0.051   0.000  Madd_index_addsub0000_cy<27> (Madd_index_addsub0000_cy<27>)
+     MUXCY:CI->O           1   0.051   0.000  Madd_index_addsub0000_cy<28> (Madd_index_addsub0000_cy<28>)
+     MUXCY:CI->O           1   0.051   0.000  Madd_index_addsub0000_cy<29> (Madd_index_addsub0000_cy<29>)
+     XORCY:CI->O           2   0.699   0.383  Madd_index_addsub0000_xor<30> (index_addsub0000<30>)
+     LUT4:I3->O            1   0.612   0.000  Mcompar_index_cmp_gt0000_lut<6> (Mcompar_index_cmp_gt0000_lut<6>)
+     MUXCY:S->O            1   0.404   0.000  Mcompar_index_cmp_gt0000_cy<6> (Mcompar_index_cmp_gt0000_cy<6>)
+     MUXCY:CI->O          32   0.399   1.076  Mcompar_index_cmp_gt0000_cy<7> (Mcompar_index_cmp_gt0000_cy<7>)
+     LUT4:I3->O            1   0.612   0.000  Mmux_index_mux000321 (index_mux0003<0>)
+     FDRE:D                    0.268          index_31
+    ----------------------------------------
+    Total                      8.296ns (6.018ns logic, 2.278ns route)
+                                       (72.5% logic, 27.5% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'slow_clock'
+  Clock period: 2.148ns (frequency: 465.593MHz)
+  Total number of paths / destination ports: 19 / 16
+-------------------------------------------------------------------------
+Delay:               2.148ns (Levels of Logic = 1)
+  Source:            lfsr_1/lfsr_temp_0 (FF)
+  Destination:       lfsr_1/lfsr_temp_10 (FF)
+  Source Clock:      slow_clock rising
+  Destination Clock: slow_clock rising
+
+  Data Path: lfsr_1/lfsr_temp_0 to lfsr_1/lfsr_temp_10
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDP:C->Q              7   0.514   0.754  lfsr_1/lfsr_temp_0 (lfsr_1/lfsr_temp_0)
+     LUT2:I0->O            1   0.612   0.000  lfsr_1/lfsr_temp_mux0001<13>1 (lfsr_1/lfsr_temp_mux0001<13>)
+     FDC:D                     0.268          lfsr_1/lfsr_temp_13
+    ----------------------------------------
+    Total                      2.148ns (1.394ns logic, 0.754ns route)
+                                       (64.9% logic, 35.1% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'clk_251'
+  Total number of paths / destination ports: 81 / 81
+-------------------------------------------------------------------------
+Offset:              4.333ns (Levels of Logic = 2)
+  Source:            reset (PAD)
+  Destination:       DAC_1/data_11 (FF)
+  Destination Clock: clk_251 rising
+
+  Data Path: reset to DAC_1/data_11
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            23   1.106   1.174  reset_IBUF (reset_IBUF)
+     LUT2:I0->O           21   0.612   0.959  DAC_1/addr1_and00011 (DAC_1/addr1_and0001)
+     FDE:CE                    0.483          DAC_1/addr1_1
+    ----------------------------------------
+    Total                      4.333ns (2.201ns logic, 2.132ns route)
+                                       (50.8% logic, 49.2% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'clk_251'
+  Total number of paths / destination ports: 3 / 3
+-------------------------------------------------------------------------
+Offset:              4.063ns (Levels of Logic = 1)
+  Source:            DAC_1/newclk (FF)
+  Destination:       SPI_SCK (PAD)
+  Source Clock:      clk_251 rising
+
+  Data Path: DAC_1/newclk to SPI_SCK
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDE:C->Q              2   0.514   0.380  DAC_1/newclk (DAC_1/newclk)
+     OBUF:I->O                 3.169          SPI_SCK_OBUF (SPI_SCK)
+    ----------------------------------------
+    Total                      4.063ns (3.683ns logic, 0.380ns route)
+                                       (90.6% logic, 9.4% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'slow_clock'
+  Total number of paths / destination ports: 3 / 3
+-------------------------------------------------------------------------
+Offset:              4.764ns (Levels of Logic = 1)
+  Source:            lfsr_1/lfsr_temp_1 (FF)
+  Destination:       led<1> (PAD)
+  Source Clock:      slow_clock rising
+
+  Data Path: lfsr_1/lfsr_temp_1 to led<1>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDC:C->Q             64   0.514   1.081  lfsr_1/lfsr_temp_1 (lfsr_1/lfsr_temp_1)
+     OBUF:I->O                 3.169          led_1_OBUF (led<1>)
+    ----------------------------------------
+    Total                      4.764ns (3.683ns logic, 1.081ns route)
+                                       (77.3% logic, 22.7% route)
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 11.00 secs
+Total CPU time to Xst completion: 10.58 secs
+ 
+--> 
+
+Total memory usage is 278792 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :   30 (   0 filtered)
+Number of infos    :    3 (   0 filtered)
+

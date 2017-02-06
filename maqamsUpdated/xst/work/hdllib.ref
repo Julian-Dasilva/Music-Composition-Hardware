@@ -1,0 +1,8 @@
+AR main behavioral "G:/data/xilinx projects/maqams 3-12-15/main.vhd" sub00/vhpl05 1426815393
+EN mem NULL "G:/data/xilinx projects/maqams 3-12-15/ipcore_dir/mem.vhd" sub00/vhpl00 1426815388
+AR lfsr behavioral "G:/data/xilinx projects/maqams 3-12-15/lfsr.vhd" sub00/vhpl07 1426815387
+EN main NULL "G:/data/xilinx projects/maqams 3-12-15/main.vhd" sub00/vhpl04 1426815392
+AR dac behavioral "G:/data/xilinx projects/maqams 3-12-15/DAC.vhd" sub00/vhpl03 1426815391
+EN lfsr NULL "G:/data/xilinx projects/maqams 3-12-15/lfsr.vhd" sub00/vhpl06 1426815386
+AR mem mem_a "G:/data/xilinx projects/maqams 3-12-15/ipcore_dir/mem.vhd" sub00/vhpl01 1426815389
+EN dac NULL "G:/data/xilinx projects/maqams 3-12-15/DAC.vhd" sub00/vhpl02 1426815390

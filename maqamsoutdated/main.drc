@@ -1,0 +1,11 @@
+Release 13.4 Drc O.87xd (nt64)
+Copyright (c) 1995-2011 Xilinx, Inc.  All rights reserved.
+
+Wed Mar 18 16:58:12 2015
+
+drc -z main.ncd main.pcf
+
+WARNING:PhysDesignRules:367 - The signal <SPI_MISO_IBUF> is incomplete. The
+   signal does not drive any load pins in the design.
+DRC detected 0 errors and 1 warnings.  Please see the previously displayed
+individual error or warning messages for more details.

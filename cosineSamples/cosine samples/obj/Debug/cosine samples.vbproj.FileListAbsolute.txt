@@ -1,0 +1,10 @@
+c:\users\pontios\documents\visual studio 2012\Projects\cosine samples\cosine samples\bin\Debug\cosine samples.exe.config
+c:\users\pontios\documents\visual studio 2012\Projects\cosine samples\cosine samples\bin\Debug\cosine samples.exe
+c:\users\pontios\documents\visual studio 2012\Projects\cosine samples\cosine samples\bin\Debug\cosine samples.pdb
+c:\users\pontios\documents\visual studio 2012\Projects\cosine samples\cosine samples\bin\Debug\cosine samples.xml
+c:\users\pontios\documents\visual studio 2012\Projects\cosine samples\cosine samples\obj\Debug\cosine_samples.Form1.resources
+c:\users\pontios\documents\visual studio 2012\Projects\cosine samples\cosine samples\obj\Debug\cosine_samples.Resources.resources
+c:\users\pontios\documents\visual studio 2012\Projects\cosine samples\cosine samples\obj\Debug\cosine samples.vbproj.GenerateResource.Cache
+c:\users\pontios\documents\visual studio 2012\Projects\cosine samples\cosine samples\obj\Debug\cosine samples.exe
+c:\users\pontios\documents\visual studio 2012\Projects\cosine samples\cosine samples\obj\Debug\cosine samples.xml
+c:\users\pontios\documents\visual studio 2012\Projects\cosine samples\cosine samples\obj\Debug\cosine samples.pdb

@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=G:\data\xilinx projects\maqams 3-12-15\main.ncd
+OUTFILE=G:\data\xilinx projects\maqams 3-12-15\main.bit
+FAMILY=Spartan3E
+PART=xc3s500e-5fg320
+WORKINGDIR=G:\data\xilinx projects\maqams 3-12-15
+LICENSE=WebPack
+USER_INFO=174475390_175233729_0_579
